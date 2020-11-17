@@ -9,6 +9,6 @@ export class ButtonDirective {
     }
     customizarBackground(element: any): any {
       console.log(element);
-      element.style.color = 'green';
+      // element.style.color = 'green';
     }
 }

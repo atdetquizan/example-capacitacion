@@ -1,30 +1,12 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { BodyComponent } from './body/body.component';
-export interface Ascenda {
-    title: string;
-    description: string;
-}
+import { BodyComponent } from './shared/components/body/body.component';
+import { Ascenda } from './shared/interfaces/ascenda.interface';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
-    @ViewChild(BodyComponent) body: BodyComponent;
-
-    params: Ascenda = {
-        title: 'Ascenda title',
-        description: 'Ascenda description'
-    };
-
-    seletedIndex: number;
-
-    ngAfterViewInit(): void {
-        console.log(this.body.multiplicar(2));
-    }
-
-    onSelectedCard(index: number): void {
-        this.seletedIndex = index;
-    }
 }

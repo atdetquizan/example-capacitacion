@@ -1,7 +1,5 @@
 <app-header></app-header>
-<app-body [ascenda]="params" (selected)="onSelectedCard($event)">
-  <div>
-    Index seleccionado: {{ seletedIndex }}
-  </div>
-</app-body>
+<app-body>
+    <router-outlet></router-outlet>
+</app-body> 
 <app-footer></app-footer>

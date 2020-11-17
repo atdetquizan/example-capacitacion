@@ -1,0 +1,13 @@
+<div class="card" style="width: 100%;">
+    <img [src]="item.imagen" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ item.title }}
+        </h5>
+        <p class="card-text">
+            {{ item.description }}
+        </p>
+        <a [routerLink]="['./detail', item.id]" class="btn btn-primary">Router</a>
+        <app-button label="Modal" (eventClick)="onClickModal(item)"></app-button>
+    </div>
+</div>

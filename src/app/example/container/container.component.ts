@@ -1,25 +1,13 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter,
-    ViewChild,
-    ElementRef,
-    AfterViewInit,
-    ViewChildren,
-    QueryList,
-} from '@angular/core';
-import { Ascenda } from '../app.component';
-import { CardComponent } from '../card/card.component';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Ascenda } from 'src/app/shared/interfaces/ascenda.interface';
 import { Observable, of } from 'rxjs';
 
 @Component({
-    selector: 'app-body',
-    templateUrl: './body.component.html',
-    styleUrls: ['./body.component.scss'],
+    selector: 'app-container',
+    templateUrl: './container.component.html',
+    styleUrls: ['./container.component.scss'],
 })
-export class BodyComponent implements OnInit, AfterViewInit {
+export class ContainerComponent implements OnInit, AfterViewInit {
     @Input() ascenda: Ascenda;
 
     @Output() selected: EventEmitter<number> = new EventEmitter();

@@ -1,0 +1,12 @@
+<h1>
+    {{ project?.title }}
+</h1>
+
+<img [src]="project?.imagen" width="100%">
+
+<p>
+    {{ project?.description }}
+</p>
+
+<a [routerLink]="['/project']" *ngIf="!isModal">Regresar</a>
+<button type="button" (click)="onCloseModal()" class="btn btn-primary" *ngIf="isModal">Cerrar</button>
