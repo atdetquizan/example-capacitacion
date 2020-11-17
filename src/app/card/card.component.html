@@ -1,0 +1,26 @@
+<div class="card" [ngClass]="{ 'card-border-red': indexSeleted == index }" style="width: 100%;">
+    <img src="https://www.rockandpop.cl/wp-content/uploads/2019/05/1549398484_245327_1549400488_noticia_normal.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            Card title {{ index }} <br>
+            <small>{{ title | formatofecha: item?.type }}</small>
+        </h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+            card's content.</p>
+        <span>
+            {{ item?.sueldo | operaciones: item?.valor:item?.operador }}
+        </span>
+        <input type="text" 
+               class="form-control" 
+               placeholder="Card name" 
+               (click)="onFunctionClick($event.target.value)"
+               (focus)="onFunctionFocus($event.target.value)"
+               (keyup)="onFunctionKeyup($event.target.value)"
+               (keypress)="onFunctionKeypress($event.target.value)"
+               (change)="onFunctionChange($event.target.value)"
+               [value]="item?.title"
+               appFormulario>
+        <br>
+        <app-button (eventClick)="onClickSelected()"></app-button>
+    </div>
+</div>
