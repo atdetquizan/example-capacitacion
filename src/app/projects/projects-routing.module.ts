@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsDetailComponent } from './projects-detail/projects-detail.component';
 import { ProjectsIndexComponent } from './projects-index/projects-index.component';
+import { ValidarUsuarioGuard } from '../shared/guards/validar-usuario.guard';
 
 const routes: Routes = [
     {

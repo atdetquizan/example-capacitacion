@@ -7,10 +7,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/examples']" routerLinkActive="disabled" >Examples</a>
-            </li>
-            <li class="nav-item">
+            <ng-container *ngIf="status">
+                <li class="nav-item" *ngFor="let item of navegates">
+                    <a class="nav-link" [routerLink]="[item?.path]" routerLinkActive="disabled" >{{ item?.title }}</a>
+                </li>
+            </ng-container>
+            <!-- <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/project']" routerLinkActive="disabled" >Proyectos</a>
             </li>
             <li class="nav-item">
@@ -18,6 +20,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/music']" routerLinkActive="disabled" >Musica</a>
+            </li> -->
+            <li class="nav-item">
+                <button type="button" class="btn btn-link nav-link" (click)="onClickLogin(status)">
+                    {{ status ? 'Logout' : 'Login' }} 
+                </button>
             </li>
         </ul>
     </div>

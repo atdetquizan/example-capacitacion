@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../../services/events.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
+    this.eventsService.auth.subscribe((res) => {
+      console.log('FooterComponent', res);
+    });
   }
 
 }
