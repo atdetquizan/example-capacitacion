@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonsService } from './providers/persons.service';
 
 @Component({
     selector: 'app-music',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicComponent implements OnInit {
     value = 0;
-    constructor() {}
+    persons: any;
+    constructor(private personsService: PersonsService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.personsService.get({ page: 1, take: 10, search: '' }).subscribe((res) => {
+            this.persons = res;
+            console.log(this.persons.items);
+        });
+    }
 
     async onClickDecrease(): Promise<void> {
         // tslint:disable-next-line: no-unused-expression

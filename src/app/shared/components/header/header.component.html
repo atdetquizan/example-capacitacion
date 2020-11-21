@@ -21,9 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/music']" routerLinkActive="disabled" >Musica</a>
             </li> -->
-            <li class="nav-item">
-                <button type="button" class="btn btn-link nav-link" (click)="onClickLogin(status)">
-                    {{ status ? 'Logout' : 'Login' }} 
+            <li class="nav-item" *ngIf="status" >
+                <button type="button" class="btn btn-link nav-link" (click)="onClickLogout()">
+                    Logout
                 </button>
             </li>
         </ul>

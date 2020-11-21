@@ -4,13 +4,17 @@ import {
     ActivatedRouteSnapshot,
     RouterStateSnapshot,
     UrlTree,
+    Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { StorageService } from '../services/storage.service';
+import { Token } from '../interfaces/token.interface';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ValidarUsuarioGuard implements CanActivate {
+    constructor(private storageService: StorageService, private router: Router){}
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
@@ -19,7 +23,11 @@ export class ValidarUsuarioGuard implements CanActivate {
         | Promise<boolean | UrlTree>
         | boolean
         | UrlTree {
-        const user = sessionStorage.getItem('user');
-        return !!user;
+        const user = this.storageService.get<Token>('user');
+        if (user) {
+            return true;
+        }
+        this.router.navigate(['/']);
+        return false;
     }
 }

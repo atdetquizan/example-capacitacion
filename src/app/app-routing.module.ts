@@ -4,6 +4,11 @@ import { ValidarUsuarioGuard } from './shared/guards/validar-usuario.guard';
 
 const routes: Routes = [
     {
+        path: '',
+        loadChildren: () =>
+            import('./auth/auth.module').then((m) => m.AuthModule),
+    },
+    {
         path: 'examples',
         canActivate: [ValidarUsuarioGuard],
         loadChildren: () =>
@@ -26,11 +31,6 @@ const routes: Routes = [
         canActivate: [ValidarUsuarioGuard],
         loadChildren: () =>
             import('./projects/projects.module').then((m) => m.ProjectsModule),
-    },
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'examples'
     }
 ];
 

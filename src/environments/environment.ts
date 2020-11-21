@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  formatofecha: 'DD/MM/YYYY'
+  formatofecha: 'DD/MM/YYYY',
+  api: 'http://crececapitalautoservicio.ascendanube.com/api'
 };
 
 /*
