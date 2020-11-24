@@ -31,6 +31,11 @@ const routes: Routes = [
         canActivate: [ValidarUsuarioGuard],
         loadChildren: () =>
             import('./projects/projects.module').then((m) => m.ProjectsModule),
+    },
+    {
+        path: 'formularios',
+        loadChildren: () =>
+            import('./formularios/formularios.module').then((m) => m.FormulariosModule),
     }
 ];
 

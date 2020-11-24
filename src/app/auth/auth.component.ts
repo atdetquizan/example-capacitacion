@@ -42,7 +42,7 @@ export class AuthComponent implements OnInit {
 
     private initialForm(): void {
         this.form = this.fb.group({
-            userName: [null, [Validators.required]],
+            username: [null, [Validators.required]],
             password: [null, [Validators.required]],
         });
     }

@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-12">
+        {{ form.value | json }}
+    </div>
+    <div class="col-md-12">
+        <form [formGroup]="form">
+            <ng-container formArrayName="contacts">
+                <ng-container *ngFor="let item of contacts.controls; let i = index">
+                    <div class="form-row" [formGroupName]="i">
+                        <div class="col-12">
+                            <label>Contacto</label>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control" formControlName="name" placeholder="Nombres">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" formControlName="phone" placeholder="Telefono">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" formControlName="email" placeholder="Correo">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary w-100" (click)="onClickAdd()">Agregar</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary w-100" [disabled]="!form.get('contacts').controls[i].valid">Guardar</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </form>
+    </div>
+    <div class="col-md-12 pt-5">
+        <button type="button" class="btn btn-primary" (click)="onClickSave()">Guardar</button>
+    </div>
+</div>

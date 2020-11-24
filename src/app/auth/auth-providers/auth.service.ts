@@ -10,6 +10,6 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
     constructor(private http: HttpClient) {}
     login(params: Login): Observable<any> {
-      return this.http.post<any>(`${environment.api}/auth/login`, params);
+        return this.http.post<any>(`${environment.api}/auth/login`, params);
     }
 }

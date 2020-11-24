@@ -15,18 +15,27 @@ export class HeaderComponent implements OnInit {
         {
             path: '/examples',
             title: 'Examples',
+            status: true
         },
         {
             path: '/project',
             title: 'Proyectos',
+            status: true
         },
         {
             path: '/cuentas',
             title: 'Cuentas',
+            status: true
         },
         {
             path: '/music',
             title: 'Musica',
+            status: true
+        },
+        {
+            path: '/formularios',
+            title: 'Formulario',
+            status: false
         },
     ];
     constructor(private eventsService: EventsService, private storageService: StorageService, private router: Router) {}
